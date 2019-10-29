@@ -3,10 +3,13 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Shrooms.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 using System;
 
 namespace Shrooms.Controllers
 {
+  //requires token
+  [Authorize]
   [Route("api/[controller]")]
   [ApiController]
   public class MushroomsController : ControllerBase
