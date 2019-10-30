@@ -11,6 +11,9 @@ using Shrooms.Helpers;
 
 namespace Shrooms.Services
 {
+
+
+
     public interface IUserService
     {
         User Authenticate(string username, string password);
@@ -20,22 +23,41 @@ namespace Shrooms.Services
     public class UserService : IUserService
     {
         // users hardcoded for simplicity, store in a db with hashed passwords in production applications
-        private List<User> _users = new List<User>
-        { 
-            new User { Id = 1, FirstName = "Test", LastName = "User", Username = "test", Password = "test" }, 
-            new User { Id = 2, FirstName = "Micah", LastName = "Zaayer", Username = "mz", Password = "mz" } 
-        };
-
+        // private List<User> _users = new List<User>
+        // { 
+        //     new User { Id = 1, FirstName = "Test", LastName = "User", Username = "test", Password = "test" }, 
+        //     new User { Id = 2, FirstName = "Micah", LastName = "Zaayer", Username = "mz", Password = "mz" } 
+        // };
+        private ShroomsContext _db;
         private readonly AppSettings _appSettings;
 
-        public UserService(IOptions<AppSettings> appSettings)
+        public UserService(IOptions<AppSettings> appSettings, ShroomsContext db)
         {
             _appSettings = appSettings.Value;
+            _db = db;
         }
 
         public User Authenticate(string username, string password)
         {
-            var user = _users.SingleOrDefault(x => x.Username == username && x.Password == password);
+            //take in user
+            //hash password
+
+            string hashedPassword = SecurePasswordHasher.Hash(password, 1000);
+
+            //look in database for entry with matchign username and hashed password
+
+            User userFromDb = _db.Users.FirstOrDefault(a => a.Username == username);
+
+            //use 'verify' method of hash class
+            if (SecurePasswordHasher.Verify(userFromDb.PasswordHash, hashedPassword))
+            {
+                return null;
+            }
+
+
+            //if true return ok(user)
+
+            var user = _db.Users.SingleOrDefault(x => x.Username == username);
 
             // return null if user not found
             if (user == null)
@@ -46,7 +68,7 @@ namespace Shrooms.Services
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new Claim[] 
+                Subject = new ClaimsIdentity(new Claim[]
                 {
                     new Claim(ClaimTypes.Name, user.Id.ToString())
                 }),
@@ -65,10 +87,7 @@ namespace Shrooms.Services
         public IEnumerable<User> GetAll()
         {
             // return users without passwords
-            return _users.Select(x => {
-                x.Password = null;
-                return x;
-            });
+            return _db.Users;
         }
     }
 }

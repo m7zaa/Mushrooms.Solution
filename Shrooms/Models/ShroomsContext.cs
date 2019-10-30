@@ -8,7 +8,7 @@ namespace Shrooms.Models
             : base(options)
         {
         }
-
+        public DbSet<User> Users { get; set; }
         public DbSet<Mushroom> Mushrooms { get; set; }
         
         protected override void OnModelCreating(ModelBuilder builder)
@@ -21,9 +21,8 @@ namespace Shrooms.Models
 
                 new Mushroom { MushroomId = 3, Name = "Psilocybe cyanescens", Family = "Hymenogastraceae", Psycho = true, Poisonous = false, Region = "Pacific Northwest, Western Europe, Central Europe, New Zealand and west Asia", SporePrintDetails = "blackish-brown to purple", VisualDetails = "Cap is caramel to chestnut-brown when moist, fading to pale buff or slightly yellowish when dried. Stems are wavy. Parts of mushroom can turn blue when touched or disturbed", CapDimensions = 3, StemDimensions = 7 },
 
-                new Mushroom { MushroomId = 4, Name = "Psilocybe cyanescens", Family = "Hymenogastraceae", Psycho = true, Poisonous = false, Region = "Pacific Northwest, Western Europe, Central Europe, New Zealand and west Asia", SporePrintDetails = "blackish-brown to purple", VisualDetails = "Cap is caramel to chestnut-brown when moist, fading to pale buff or slightly yellowish when dried. Stems are wavy. Parts of mushroom can turn blue when touched or disturbed", CapDimensions = 3, StemDimensions = 7 },
-                new Mushroom { MushroomId = 5, Name = "Polypore", Family = "Polyporaceae", Psycho = false, Poisonous = false, Region = "Globally in forested areas", SporePrintDetails = "N/A", VisualDetails = "woody, shelf-like form, projecting straight out of tree trunks or logs.", CapDimensions = 29, StemDimensions = 29 }
-
+                new Mushroom { MushroomId = 4, Name = "Polypore", Family = "Polyporaceae", Psycho = false, Poisonous = false, Region = "Globally in forested areas", SporePrintDetails = "N/A", VisualDetails = "woody, shelf-like form, projecting straight out of tree trunks or logs.", CapDimensions = 29, StemDimensions = 29 }
+                
                 
             );
         }
