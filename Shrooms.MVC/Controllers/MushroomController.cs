@@ -12,22 +12,24 @@ using System;
 namespace Shrooms.Controllers
 {
    
-    public class MushroomssController : Controller
+    public class MushroomsController : Controller
     {
-        public ActionResult Index()
+        public IActionResult Index()
         {
-            //make a place to stro the mushrooms
-            List<Mushroom> model;
-
-            //get the mushrooms from the api
-            model = Mushroom.MushroomList();
-
-            //pass the mushrooms to a view
-            
-            return View(model);
+            var mushroomList = Mushroom.MushroomList();
+            return View(mushroomList);
         }
-    }
 
+        [HttpGet("Details/{id}")]
+        public ActionResult Details(int id)
+        {
+            
+            Mushroom thisMushroom = Mushroom.MushroomDetails(id);
+            Console.WriteLine(thisMushroom.Name);
+            Console.WriteLine("check");
+
+            return View(thisMushroom);
+        }
 
     //     // public async Task<ActionResult> Index()
     //     // {
@@ -49,14 +51,6 @@ namespace Shrooms.Controllers
     //         return RedirectToAction("Index");
     //     }
 
-    //     public ActionResult Details(int id)
-    //     {
-    //         var thisMushroom = _db.Mushrooms
-    //             .Include(mushroom => mushroom.Treats)
-    //             .ThenInclude(join => join.Treat)
-    //             .FirstOrDefault(Mushroom => Mushroom.MushroomId == id);
-    //         return View(thisMushroom);
-    //     }
 
     //     [HttpPost]
     //     public ActionResult Index(string search)
@@ -115,4 +109,5 @@ namespace Shrooms.Controllers
     //         _db.SaveChanges();
     //         return RedirectToAction("Index");
     //     }
+    }
 }

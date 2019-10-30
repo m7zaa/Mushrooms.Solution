@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using System;
 
 namespace Shrooms.Models
 {
@@ -36,6 +37,18 @@ namespace Shrooms.Models
             List<Mushroom> mushrooms = JsonConvert.DeserializeObject<List<Mushroom>>(jsonResponse.ToString());
 
             return mushrooms;
+        }        
+        public static Mushroom MushroomDetails(int id)
+        {
+            var apiCallTask = ApiHelper.ApiCallDetails(id);
+            var result = apiCallTask.Result;
+
+            JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+            Mushroom mushroom = JsonConvert.DeserializeObject<Mushroom>(jsonResponse.ToString());
+            Console.WriteLine("mushroomDetails", mushroom.Name);
+
+            return mushroom;
         }
+
     }
 }

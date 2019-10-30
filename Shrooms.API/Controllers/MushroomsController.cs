@@ -9,7 +9,7 @@ using System;
 namespace Shrooms.Controllers
 {
   //requires token
-  [Authorize]
+  // [Authorize]
   [Route("api/[controller]")]
   [ApiController]
   public class MushroomsController : ControllerBase

@@ -27,3 +27,5 @@
 /Users/Guest/Desktop/Shrooms.Solution/Shrooms.MVC/bin/Debug/netcoreapp2.2/Shrooms.MVC.Views.pdb
 /Users/Guest/Desktop/Shrooms.Solution/Shrooms.MVC/obj/Debug/netcoreapp2.2/Shrooms.MVC.Views.pdb
 /Users/Guest/Desktop/Shrooms.Solution/Shrooms.MVC/obj/Debug/netcoreapp2.2/Shrooms.MVC.csproj.CopyComplete
+/Users/Guest/Desktop/Shrooms.Solution/Shrooms.MVC/obj/Debug/netcoreapp2.2/Razor/Views/Mushrooms/Create.g.cshtml.cs
+/Users/Guest/Desktop/Shrooms.Solution/Shrooms.MVC/obj/Debug/netcoreapp2.2/Razor/Views/Mushrooms/Details.g.cshtml.cs

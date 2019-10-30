@@ -1,0 +1,6 @@
+@using Shrooms.Models;
+
+@foreach (Mushroom mushroom in Model)
+{
+    <p>@Html.ActionLink($"{@mushroom.Name}", "Details", "Mushrooms", new {id = mushroom.MushroomId})</p>
+}
