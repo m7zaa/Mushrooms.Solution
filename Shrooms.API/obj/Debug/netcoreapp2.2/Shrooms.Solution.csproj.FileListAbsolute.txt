@@ -1,0 +1,14 @@
+/Users/Guest/Desktop/Shrooms.Solution/Shrooms.API/bin/Debug/netcoreapp2.2/Shrooms.Solution.deps.json
+/Users/Guest/Desktop/Shrooms.Solution/Shrooms.API/bin/Debug/netcoreapp2.2/Shrooms.Solution.runtimeconfig.json
+/Users/Guest/Desktop/Shrooms.Solution/Shrooms.API/bin/Debug/netcoreapp2.2/Shrooms.Solution.runtimeconfig.dev.json
+/Users/Guest/Desktop/Shrooms.Solution/Shrooms.API/bin/Debug/netcoreapp2.2/Shrooms.Solution.dll
+/Users/Guest/Desktop/Shrooms.Solution/Shrooms.API/bin/Debug/netcoreapp2.2/Shrooms.Solution.pdb
+/Users/Guest/Desktop/Shrooms.Solution/Shrooms.API/obj/Debug/netcoreapp2.2/Shrooms.Solution.csprojAssemblyReference.cache
+/Users/Guest/Desktop/Shrooms.Solution/Shrooms.API/obj/Debug/netcoreapp2.2/Shrooms.Solution.csproj.CoreCompileInputs.cache
+/Users/Guest/Desktop/Shrooms.Solution/Shrooms.API/obj/Debug/netcoreapp2.2/Shrooms.Solution.RazorAssemblyInfo.cache
+/Users/Guest/Desktop/Shrooms.Solution/Shrooms.API/obj/Debug/netcoreapp2.2/Shrooms.Solution.RazorAssemblyInfo.cs
+/Users/Guest/Desktop/Shrooms.Solution/Shrooms.API/obj/Debug/netcoreapp2.2/Shrooms.Solution.AssemblyInfoInputs.cache
+/Users/Guest/Desktop/Shrooms.Solution/Shrooms.API/obj/Debug/netcoreapp2.2/Shrooms.Solution.AssemblyInfo.cs
+/Users/Guest/Desktop/Shrooms.Solution/Shrooms.API/obj/Debug/netcoreapp2.2/Shrooms.Solution.RazorTargetAssemblyInfo.cache
+/Users/Guest/Desktop/Shrooms.Solution/Shrooms.API/obj/Debug/netcoreapp2.2/Shrooms.Solution.dll
+/Users/Guest/Desktop/Shrooms.Solution/Shrooms.API/obj/Debug/netcoreapp2.2/Shrooms.Solution.pdb

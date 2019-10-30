@@ -12,8 +12,8 @@ namespace Shrooms.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var mushroomList = Mushroom.MushroomList();
+            return View(mushroomList);
         }
-
     }
 }

@@ -7,7 +7,7 @@ namespace Shrooms.Models
     {
         public static async Task<string> ApiCallIndex()
         {
-            RestClient client = new RestClient("http://localhost5000/api/mushrooms");
+            RestClient client = new RestClient("http://localhost:5000/api/mushrooms");
             RestRequest request = new RestRequest(Method.GET);
             var response = await client.ExecuteTaskAsync(request);
             return response.Content;

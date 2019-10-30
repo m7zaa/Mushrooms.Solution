@@ -12349,9 +12349,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Guest/Desktop/Shrooms.Solution/Shrooms.API/Shrooms.csproj",
-      "projectName": "Shrooms",
-      "projectPath": "/Users/Guest/Desktop/Shrooms.Solution/Shrooms.API/Shrooms.csproj",
+      "projectUniqueName": "/Users/Guest/Desktop/Shrooms.Solution/Shrooms.API/Shrooms.Solution.csproj",
+      "projectName": "Shrooms.Solution",
+      "projectPath": "/Users/Guest/Desktop/Shrooms.Solution/Shrooms.API/Shrooms.Solution.csproj",
       "packagesPath": "/Users/Guest/.nuget/packages/",
       "outputPath": "/Users/Guest/Desktop/Shrooms.Solution/Shrooms.API/obj/",
       "projectStyle": "PackageReference",
