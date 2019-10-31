@@ -33,66 +33,50 @@ namespace Shrooms.Controllers
       {
         flex = flex.ToLower();
         query = query.Where(entry => entry.Name.ToLower().Contains(flex) || entry.Family.ToLower().Contains(flex) || entry.Psycho && flex.Contains("sycho") || entry.Poisonous && flex.Contains("oison") || entry.Region.ToLower().Contains(flex) || entry.SporePrintDetails.ToLower().Contains(flex) || entry.VisualDetails.ToLower().Contains(flex) || entry.CapDimensions.Equals(flex) || entry.StemDimensions.Equals(flex));
-
-
-        return query.ToList();
-      } 
-      
+      }
       else
-    
+      {
+        if (name != null)
+        {
+          query = query.Where(entry => entry.Name.ToLower().Contains(name.ToLower()));
+        }
 
+        if (family != null)
+        {
+          query = query.Where(entry => entry.Family.ToLower().Contains(family.ToLower()));
+        }
 
-
-      if (name != null)
-      {
-        query = query.Where(entry => entry.Name.ToLower().Contains(name.ToLower()));
+        if (poisonous != false)
+        {
+          query = query.Where(entry => entry.Poisonous == poisonous);
+        }
+        if (psycho != false)
+        {
+          query = query.Where(entry => entry.Psycho == psycho);
+        }
+        if (region != null)
+        {
+          query = query.Where(entry => entry.Region.ToLower().Contains(region.ToLower()));
+        }
+        if (sporePrintDetails != null)
+        {
+          query = query.Where(entry => entry.SporePrintDetails.ToLower().Contains(sporePrintDetails.ToLower()));
+        }
+        if (visualDetails != null)
+        {
+          query = query.Where(entry => entry.VisualDetails.ToLower().Contains(visualDetails.ToLower()));
+        }
+        if (capDimensions != 0)
+        {
+          query = query.Where(entry => entry.CapDimensions == capDimensions);
+        }
+        if (stemDimensions != 0)
+        {
+          query = query.Where(entry => entry.StemDimensions == stemDimensions);
+        }
       }
-
-      if (family != null)
-      {
-        query = query.Where(entry => entry.Family.ToLower().Contains(family.ToLower()));
-      }
-
-      if (poisonous != false)
-      {
-        query = query.Where(entry => entry.Poisonous == poisonous);
-      }
-      if (psycho != false)
-      {
-        query = query.Where(entry => entry.Psycho == psycho);
-      }
-      if (region != null)
-      {
-        query = query.Where(entry => entry.Region.ToLower().Contains(region.ToLower()));
-      }
-      if (sporePrintDetails != null)
-      {
-        query = query.Where(entry => entry.SporePrintDetails.ToLower().Contains(sporePrintDetails.ToLower()));
-      }
-      if (visualDetails != null)
-      {
-        query = query.Where(entry => entry.VisualDetails.ToLower().Contains(visualDetails.ToLower()));
-      }
-      if (capDimensions != 0)
-      {
-        query = query.Where(entry => entry.CapDimensions == capDimensions);
-      }
-      if (stemDimensions != 0)
-      {
-        query = query.Where(entry => entry.StemDimensions == stemDimensions);
-      }
-
       return query.ToList();
     }
-
-
-
-
-
-
-
-
-
     // POST api/Mushrooms
     [HttpPost]
     public void Post([FromBody] Mushroom mushroom)
@@ -118,7 +102,8 @@ namespace Shrooms.Controllers
     }
 
     // DELETE api/Mushrooms/5
-    [HttpDelete("{id}")]
+
+    [HttpDelete("/api/mushrooms/{id}")]
     public void Delete(int id)
     {
       var mushroomToDelete = _db.Mushrooms.FirstOrDefault(entry => entry.MushroomId == id);

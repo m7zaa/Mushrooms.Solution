@@ -39,6 +39,7 @@ namespace Shrooms.Models
 
             return mushrooms;
         }        
+        
         public static Mushroom MushroomDetails(int id)
         {
             var apiCallTask = ApiHelper.ApiCallDetails(id);
@@ -53,8 +54,13 @@ namespace Shrooms.Models
 
         public void MushroomCreate()
         {
-            JObject mushroom = (JObject)JToken.FromObject(this);
-            var result = ApiHelper.ApiCallCreate(mushroom);
+            var result = ApiHelper.ApiCallCreate(this);
+        }
+
+        public static void MushroomDelete(int id)
+        {
+            Console.WriteLine($"mushroom delete id = {id}");
+            var result = ApiHelper.ApiCallDelete(id);
         }
     }
 }

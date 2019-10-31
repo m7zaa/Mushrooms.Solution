@@ -1,6 +1,7 @@
 @using Shrooms.Models;
 @model Shrooms.Models.Mushroom;
 <h2>@Model.Name Details</h2>
+<p>id: @Model.MushroomId</p>
 <p>Family: @Model.Family</p>
 <p>Pyschoactive: @Model.Psycho</p>
 <p>Poisonous: @Model.Poisonous</p>
@@ -10,4 +11,4 @@
 <p>Average Cap Dimensions (cm): @Model.CapDimensions</p>
 <p>Average Stem Length (cm): @Model.StemDimensions</p>
 
-<p>@Html.ActionLink("Add Mushroom", "Create")</p>
+<p>@Html.ActionLink("Delete Mushroom", "Delete", new {id = @Model.MushroomId}, new {name = @Model.Name})</p>

@@ -11,7 +11,6 @@ using System;
 
 namespace Shrooms.Controllers
 {
-   
     public class MushroomsController : Controller
     {
         public IActionResult Index()
@@ -20,14 +19,11 @@ namespace Shrooms.Controllers
             return View(mushroomList);
         }
 
-        [HttpGet("Details/{id}")]
+        [HttpGet("Mushrooms/{id}")]
         public ActionResult Details(int id)
         {
             
             Mushroom thisMushroom = Mushroom.MushroomDetails(id);
-            Console.WriteLine(thisMushroom.Name);
-            Console.WriteLine("check");
-
             return View(thisMushroom);
         }
 
@@ -41,6 +37,23 @@ namespace Shrooms.Controllers
         public ActionResult Create(Mushroom mushroom)
         {
             mushroom.MushroomCreate();
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int id, string name)
+        {
+            ViewBag.name = name;
+            ViewBag.id = id;
+            Console.WriteLine($"delete get called with id {id}");
+            return View();
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            Console.WriteLine($"delete called with id {id}");
+            Mushroom.MushroomDelete(id);
             return RedirectToAction("Index");
         }
 

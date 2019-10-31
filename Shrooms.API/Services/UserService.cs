@@ -54,7 +54,6 @@ namespace Shrooms.Services
                 return null;
             }
 
-
             //if true return ok(user)
 
             var user = _db.Users.SingleOrDefault(x => x.Username == username);

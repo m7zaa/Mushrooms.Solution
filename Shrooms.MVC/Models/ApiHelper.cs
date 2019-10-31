@@ -25,26 +25,22 @@ namespace Shrooms.Models
             return response.Content;
         }
         
-        public static async Task<string> ApiCallCreate(JObject mushroom)
+        public static async Task<string> ApiCallCreate(Mushroom mushroom)
         {
-            Console.WriteLine("check");
-            Console.WriteLine(mushroom);
             RestClient client = new RestClient("http://localhost:5000");
             RestRequest request = new RestRequest("api/mushrooms", Method.POST);
-            // request.AddHeader("Accept", "application/json");
-            request.AddParameter("text/json", mushroom, ParameterType.RequestBody);
-            // request.AddJsonBody(mushroom);
+            request.AddJsonBody(mushroom);
             var response = await client.ExecuteTaskAsync(request);
-            Console.WriteLine(response);
             return response.Content;
         }
 
-
-
-
-
-
-
-
+        public static async Task<string> ApiCallDelete(int id)
+        {
+            RestClient client = new RestClient("http://localhost:5000");
+            RestRequest request = new RestRequest("api/mushrooms/{id}", Method.DELETE);
+            request.AddUrlSegment("id", id);
+            var response = await client.ExecuteTaskAsync(request);
+            return response.Content;
+        }
     }
 }
