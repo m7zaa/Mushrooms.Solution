@@ -37,27 +37,29 @@ namespace Shrooms.Models {
             return mushrooms;
         }
 
-
         public static Mushroom MushroomDetails (int id) {
             var apiCallTask = ApiHelper.ApiCallDetails (id);
             var result = apiCallTask.Result;
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject> (result);
             Mushroom mushroom = JsonConvert.DeserializeObject<Mushroom> (jsonResponse.ToString ());
-            Console.WriteLine(mushroom);
+            Console.WriteLine (mushroom);
             return mushroom;
         }
 
-        public void MushroomCreate () {
-            var result = ApiHelper.ApiCallCreate (this);
+        public async Task<int> MushroomCreate () {
+            var result = await ApiHelper.ApiCallCreate (this);
+            return 0;
         }
 
-        public static void MushroomDelete (int id) {
+        public async static Task<int> MushroomDelete (int id) {
             Console.WriteLine ($"mushroom delete id = {id}");
-            var result = ApiHelper.ApiCallDelete (id);
+            var result = await ApiHelper.ApiCallDelete (id);
+            return 0;
         }
 
-        public static void MushroomEdit (Mushroom mushroom) {
-            var result = ApiHelper.ApiCallEdit (mushroom);
+        public async static Task<int> MushroomEdit (Mushroom mushroom) {
+            var result = await ApiHelper.ApiCallEdit (mushroom);
+            return 0;
         }
     }
 }

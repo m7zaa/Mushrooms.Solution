@@ -6,6 +6,7 @@
   using Microsoft.AspNetCore.Mvc;
   using Microsoft.EntityFrameworkCore;
   using Shrooms.Models;
+  using System.Threading.Tasks;
 
   namespace Shrooms.Controllers {
       public class MushroomsController : Controller {
@@ -27,34 +28,35 @@
           }
 
           [HttpPost]
-          public ActionResult Create (Mushroom mushroom) {
-              mushroom.MushroomCreate ();
+          public async Task<IActionResult> Create (Mushroom mushroom) {
+              await mushroom.MushroomCreate ();
               return RedirectToAction ("Index");
           }
 
           [HttpGet]
           public ActionResult Delete (int id, string name) {
-              ViewBag.name = name;
-              ViewBag.id = id;
-              return View ();
+              //   ViewBag.Name = name;
+              //   ViewBag.Id = id;
+              var mushroom = Mushroom.MushroomDetails (id);
+              return View (mushroom);
           }
 
           [HttpPost, ActionName ("Delete")]
-          public ActionResult Delete (int id) {
-              Mushroom.MushroomDelete (id);
+          public async Task<IActionResult> Delete (int id) {
+              await Mushroom.MushroomDelete (id);
               return RedirectToAction ("Index");
           }
 
           [HttpGet]
           public ActionResult Edit (int id) {
-              var mushroom = Mushroom.MushroomDetails (id);
-              return View (mushroom);
+              var mushroom = Mushroom.MushroomDetails(id);
+              return View(mushroom);
           }
 
           [HttpPost]
-          public ActionResult Edit (Mushroom mushroom) {
-            Mushroom.MushroomEdit (mushroom);
-            return RedirectToAction ("Index");
+          public async Task<IActionResult> Edit (Mushroom mushroom) {
+              await Mushroom.MushroomEdit (mushroom);
+              return RedirectToAction ("Index");
           }
 
       }
