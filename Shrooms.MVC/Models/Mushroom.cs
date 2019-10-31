@@ -27,13 +27,22 @@ namespace Shrooms.Models {
 
         public int StemDimensions { get; set; }
 
-        public static List<Mushroom> MushroomList () {
-            var apiCallTask = ApiHelper.ApiCallIndex ();
-            var result = apiCallTask.Result;
+        public static List<Mushroom> MushroomListSearch (string search) {
+            List<Mushroom> mushrooms;
+            if (string.IsNullOrEmpty (search)) {
+                var apiCallTask = ApiHelper.ApiCallIndex ();
+                var result = apiCallTask.Result;
 
-            JArray jsonResponse = JsonConvert.DeserializeObject<JArray> (result);
-            List<Mushroom> mushrooms = JsonConvert.DeserializeObject<List<Mushroom>> (jsonResponse.ToString ());
+                JArray jsonResponse = JsonConvert.DeserializeObject<JArray> (result);
+                mushrooms = JsonConvert.DeserializeObject<List<Mushroom>> (jsonResponse.ToString ());
+            } 
+            else {
+                var apiCallTask = ApiHelper.ApiCallIndexSearch (search);
+                var result = apiCallTask.Result;
 
+                JArray jsonResponse = JsonConvert.DeserializeObject<JArray> (result);
+                mushrooms = JsonConvert.DeserializeObject<List<Mushroom>> (jsonResponse.ToString ());
+            }
             return mushrooms;
         }
 

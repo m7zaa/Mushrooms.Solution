@@ -1,23 +1,28 @@
   using System.Collections.Generic;
   using System.Linq;
+  using System.Threading.Tasks;
   using System;
   using Microsoft.AspNetCore.Authorization;
   using Microsoft.AspNetCore.Mvc.Rendering;
   using Microsoft.AspNetCore.Mvc;
   using Microsoft.EntityFrameworkCore;
   using Shrooms.Models;
-  using System.Threading.Tasks;
 
   namespace Shrooms.Controllers {
       public class MushroomsController : Controller {
-          public IActionResult Index () {
-              var mushroomList = Mushroom.MushroomList ();
+
+        //   public IActionResult Index () {
+        //       var mushroomList = Mushroom.MushroomList ();
+        //       return View (mushroomList);
+        //   }
+
+          public IActionResult Index (string search) {
+              var mushroomList = Mushroom.MushroomListSearch (search);
               return View (mushroomList);
           }
 
           [HttpGet ("Mushrooms/{id}")]
           public ActionResult Details (int id) {
-
               Mushroom thisMushroom = Mushroom.MushroomDetails (id);
               return View (thisMushroom);
           }
@@ -35,8 +40,6 @@
 
           [HttpGet]
           public ActionResult Delete (int id, string name) {
-              //   ViewBag.Name = name;
-              //   ViewBag.Id = id;
               var mushroom = Mushroom.MushroomDetails (id);
               return View (mushroom);
           }
@@ -49,8 +52,8 @@
 
           [HttpGet]
           public ActionResult Edit (int id) {
-              var mushroom = Mushroom.MushroomDetails(id);
-              return View(mushroom);
+              var mushroom = Mushroom.MushroomDetails (id);
+              return View (mushroom);
           }
 
           [HttpPost]
@@ -58,6 +61,5 @@
               await Mushroom.MushroomEdit (mushroom);
               return RedirectToAction ("Index");
           }
-
       }
   }

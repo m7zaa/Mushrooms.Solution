@@ -13,6 +13,15 @@ namespace Shrooms.Models {
             return response.Content;
         }
 
+        public static async Task<string> ApiCallIndexSearch (string search) {
+            RestClient client = new RestClient ("http://localhost:5000/api/mushrooms");
+            RestRequest request = new RestRequest (Method.GET);
+            request.AddParameter ("flex", search);
+            Console.WriteLine("search = ", search);
+            var response = await client.ExecuteTaskAsync (request);
+            return response.Content;
+        }
+
         public static async Task<string> ApiCallDetails (int id) {
             RestClient client = new RestClient ("http://localhost:5000");
             RestRequest request = new RestRequest ("/api/mushrooms/{id}", Method.GET);
