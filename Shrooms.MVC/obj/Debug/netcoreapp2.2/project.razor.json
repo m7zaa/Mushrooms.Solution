@@ -2966,6 +2966,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Mushrooms/Edit.cshtml",
+      "TargetPath": "Views/Mushrooms/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Users/Create.cshtml",
       "TargetPath": "Views/Users/Create.cshtml",
       "FileKind": "mvc"

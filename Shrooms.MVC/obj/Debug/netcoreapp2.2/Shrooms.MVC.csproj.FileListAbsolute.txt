@@ -30,3 +30,4 @@
 /Users/Guest/Desktop/Shrooms.Solution/Shrooms.MVC/obj/Debug/netcoreapp2.2/Razor/Views/Mushrooms/Create.g.cshtml.cs
 /Users/Guest/Desktop/Shrooms.Solution/Shrooms.MVC/obj/Debug/netcoreapp2.2/Razor/Views/Mushrooms/Details.g.cshtml.cs
 /Users/Guest/Desktop/Shrooms.Solution/Shrooms.MVC/obj/Debug/netcoreapp2.2/Razor/Views/Mushrooms/Delete.g.cshtml.cs
+/Users/Guest/Desktop/Shrooms.Solution/Shrooms.MVC/obj/Debug/netcoreapp2.2/Razor/Views/Mushrooms/Edit.g.cshtml.cs
