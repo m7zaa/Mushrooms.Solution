@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System;
-
+using System.Threading;
+using System.Threading.Tasks;
 namespace Shrooms.Models
 {
     public class Mushroom
@@ -50,5 +51,10 @@ namespace Shrooms.Models
             return mushroom;
         }
 
+        public void MushroomCreate()
+        {
+            JObject mushroom = (JObject)JToken.FromObject(this);
+            var result = ApiHelper.ApiCallCreate(mushroom);
+        }
     }
 }

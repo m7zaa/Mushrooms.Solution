@@ -1,0 +1,47 @@
+@using Shrooms.Models;
+@model Mushroom;
+
+
+<h2>Create a new mushroom</h2>
+
+@using (Html.BeginForm())
+{
+    <label for="Name">Mushroom Name:</label>
+    @Html.TextBoxFor(model => model.Name)
+    <br>
+
+    <label for="Name">Mushroom Family:</label>
+    @Html.TextBoxFor(model => model.Family)
+    <br>
+
+    <label for="Name">Psychoactive:</label>
+    @Html.CheckBoxFor(m => m.Psycho)
+    <br>
+    
+
+    <label for="Name">Mushroom Poisonous:</label>
+    @Html.CheckBoxFor(model => model.Poisonous)
+    <br>
+
+    <label for="Name">Mushroom Region:</label>
+    @Html.TextBoxFor(model => model.Region)
+    <br>
+
+    <label for="Name">Mushroom Spore Print Details:</label>
+    @Html.TextBoxFor(model => model.SporePrintDetails)
+    <br>
+
+    <label for="Name">Mushroom Visual Details:</label>
+    @Html.TextBoxFor(model => model.VisualDetails)
+    <br>
+
+    <label for="Name">Mushroom Cap Dimensions:</label>
+    @Html.TextBoxFor(model => model.CapDimensions)
+    <br>
+
+    <label for="Name">Stem Dimensions:</label>
+    @Html.TextBoxFor(model => model.StemDimensions)
+    <br>
+
+    <input type="submit" value="Add new mushroom" class="btn btn-primary" />
+}

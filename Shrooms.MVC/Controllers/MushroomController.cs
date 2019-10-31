@@ -31,6 +31,19 @@ namespace Shrooms.Controllers
             return View(thisMushroom);
         }
 
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Mushroom mushroom)
+        {
+            mushroom.MushroomCreate();
+            return RedirectToAction("Index");
+        }
+
     //     // public async Task<ActionResult> Index()
     //     // {
     //     //     var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -43,13 +56,6 @@ namespace Shrooms.Controllers
     //         return View();
     //     }
 
-    //     [HttpPost]
-    //     public ActionResult Create(Mushroom mushroom)
-    //     {
-    //         _db.Mushrooms.Add(mushroom);
-    //         _db.SaveChanges();
-    //         return RedirectToAction("Index");
-    //     }
 
 
     //     [HttpPost]
@@ -64,11 +70,6 @@ namespace Shrooms.Controllers
     //     }
 
 
-    //     public ActionResult Edit(int id)
-    //     {
-    //         var thisMushroom = _db.Mushrooms.FirstOrDefault(mushroom => mushroom.MushroomId == id);
-    //         return View(thisMushroom);
-    //     }
 
     //     [HttpPost]
     //     public ActionResult Edit(Mushroom mushroom)
